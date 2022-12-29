@@ -16,7 +16,7 @@ async function strategyCallback(jwtPayload, next) {
   console.log({ jwtPayload });
   const database = await modelManager;
   const { User } = database.models;
-  const user = await User.findByPK(jwtPayload.id);
+  const user = await User.findByPk(jwtPayload.id);
   if (!user) {
     next(null, false);
   }
